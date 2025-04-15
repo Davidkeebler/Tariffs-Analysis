@@ -11,14 +11,17 @@ The primary aim of this project is to analyze U.S. trade relationships using k-m
 4. **Analysis by Cluster**: The clusters were analyzed to understand trade balances, political relationships, and the potential impact of tariffs on each group.
 
 ## Political Implications
+![](https://github.com/Davidkeebler/Tariffs-Analysis/blob/main/images/clusters.png)
 - **Cluster 0** involves countries largely favoring U.S. exports with minimal imports. The political relationship is stable, with tariffs having limited strategic leverage.
 - **Cluster 1**'s profile shows dependency on U.S. imports, highlighting potential diplomatic leverage for the U.S.
 - **Cluster 2** reveals countries with balanced trade, where tariffs could strategically shift the equilibrium or enhance domestic resilience.
 
 ## Results
+![](https://github.com/Davidkeebler/Tariffs-Analysis/blob/main/images/deficit%20trade%20relationships.png)
 - **Cluster 0**: This group had high trade deficits favoring the U.S., suggesting these countries export minimally to the U.S.; thus, tariffs may have a limited economic impact.
 - **Cluster 1**: Countries in this cluster had high per capita trade deficits, favoring other countries, indicating dependency on U.S. imports, allowing for strategic tariff leverage.
 - **Cluster 2**: Exhibiting moderate deficits or balanced trade, tariffs here could adjust economic equilibrium, influencing trade patterns significantly in either enhancing domestic capacities or straining economic ties.
+![](https://github.com/Davidkeebler/Tariffs-Analysis/blob/main/images/outliers.png)
 
 ## Future Work
 1. **Broader Economic Indicators**: Incorporate GDP growth, inflation rates, and unemployment statistics for a well-rounded analysis.
