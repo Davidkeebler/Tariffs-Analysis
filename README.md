@@ -1,32 +1,57 @@
+# U.S. Tariffs Analysis (2025) – K-Means Clustering of Country Trade Profiles
 
-# Tarrifs Analysis Project
+This project analyzes U.S. international trade and tariff policy by performing k-means clustering on a country-level dataset of trade deficits, imports, exports, and tariffs. All trade numbers are normalized on a per-capita basis using available population figures.
 
-## Goal
-The primary aim of this project is to analyze U.S. trade relationships using k-means clustering, focusing on how tariffs affect these relationships. By organizing countries into distinct profiles based on trade metrics normalized per capita, we aim to understand the efficacy and potential impacts of U.S. tariffs.
+## Project Workflow
 
-## Methodology
-1. **Data Collection and Preparation**: We used a dataset containing U.S. trade figures, including exports, imports, and deficits, normalized per capita to ensure fair comparisons across countries regardless of population size.
-2. **Exploratory Data Analysis (EDA)**: The dataset was examined for outliers and trends using statistical methods and visualizations. Outliers based on trade metrics were identified using the interquartile range to understand exceptional trading circumstances or economic anomalies.
-3. **Normalization and Clustering**: Trade figures were normalized by population, followed by k-means clustering to group countries into three clusters based on their trade profiles.
-4. **Analysis by Cluster**: The clusters were analyzed to understand trade balances, political relationships, and the potential impact of tariffs on each group.
+1. **Data Acquisition:**
+   - Dataset downloaded from [Kaggle](https://www.kaggle.com/datasets/danielcalvoglez/us-tariffs-2025)
+   - Population data merged to enable per-capita transformations
 
-## Political Implications
+2. **Data Cleaning & Preprocessing:**
+   - Outliers identified with IQR method
+   - All numerical trade/tariff columns coerced to numeric dtype; non-numeric values handled
+   - NaN rows dropped for clustering accuracy
+   - Tariff percentage strings parsed into floats
+
+3. **Exploratory Data Analysis:**
+   - Distributions of per-capita trade values visualized by quantile
+   - Boxplots, violin plots, and strip plots reveal disparities, outliers, and heterogeneous economic ties
+   - ![](https://github.com/Davidkeebler/Tariffs-Analysis/blob/main/images/EDA.png)
+
+4. **Feature Engineering:**
+   - Key features engineered: US trade deficit, exports/imports (per-capita), tariffs (numeric)
+   - Derived columns for trade balance and simple relationship classification
+
+5. **K-Means Clustering:**
+   - StandardScaler for normalization
+   - Various k (number of clusters) tested using inertia and silhouette scores
+   - Chosen model (k=4) labels each country with a cluster reflecting trade-tariff profile
+   - Cluster assignment visualized and summarized
 ![](https://github.com/Davidkeebler/Tariffs-Analysis/blob/main/images/clusters.png)
-- **Cluster 0** involves countries largely favoring U.S. exports with minimal imports. The political relationship is stable, with tariffs having limited strategic leverage.
-- **Cluster 1**'s profile shows dependency on U.S. imports, highlighting potential diplomatic leverage for the U.S.
-- **Cluster 2** reveals countries with balanced trade, where tariffs could strategically shift the equilibrium or enhance domestic resilience.
 
-## Results
-![](https://github.com/Davidkeebler/Tariffs-Analysis/blob/main/images/deficit%20trade%20relationships.png)
-- **Cluster 0**: This group had high trade deficits favoring the U.S., suggesting these countries export minimally to the U.S.; thus, tariffs may have a limited economic impact.
-- **Cluster 1**: Countries in this cluster had high per capita trade deficits, favoring other countries, indicating dependency on U.S. imports, allowing for strategic tariff leverage.
-- **Cluster 2**: Exhibiting moderate deficits or balanced trade, tariffs here could adjust economic equilibrium, influencing trade patterns significantly in either enhancing domestic capacities or straining economic ties.
+6. **Outlier & Case Study Selection:**
+   - Countries combining both high tariffs and large trade deficits identified
+   - Top outliers by tariff and deficit plotted and analyzed
 ![](https://github.com/Davidkeebler/Tariffs-Analysis/blob/main/images/outliers.png)
 
-## Future Work
-1. **Broader Economic Indicators**: Incorporate GDP growth, inflation rates, and unemployment statistics for a well-rounded analysis.
-2. **Longitudinal Study**: Track trade dynamics and tariff impacts over time to measure evolving trends.
-3. **Policy Simulation**: Develop predictive models to test potential economic and political outcomes under various tariff scenarios.
-4. **Missing Information**: The dataset is missing critical import and export information for certain countries, reducing the quality of the analysis.
+7. **Interpretation & Limitations:**
+   - Clusters interpreted in terms of trade strategy, surplus/deficit dynamics, and likely U.S. policy posture
+   - *Major limitation:* Many key U.S. partners (notably China, Vietnam, etc.) are absent from the provided dataset, meaning the results do not reflect U.S. tariff strategy toward its main rivals.
+![](https://github.com/Davidkeebler/Tariffs-Analysis/blob/main/images/deficit%20trade%20relationships.png)
 
-Overall, the analysis provided insights into the U.S.'s strategic trade positions and the effectiveness of tariff policies in potentially enhancing economic influence without destabilizing existing trade relations. 
+## Main Findings
+- Most countries fall into clusters of balanced trade and low-to-moderate tariff values
+- The highest alleged tariff rates are observed almost exclusively among low-volume, minor trading partners
+- Strong outliers and cluster structure reflect dataset composition as much as real policy; caution advised due to missing major target countries
+
+## Limitations & Recommendations
+- **Missing Data:** Absence of China, Vietnam, and other top-ten partners makes policy analysis incomplete
+- **Utility of Clustering:** Methodology robust, but conclusive results require a more comprehensive dataset
+- **Reuse:** The provided code framework is ready for replication with a better dataset
+
+## How to Run
+- 
+
+---
+*Contact the author for feedback or suggestions. The project uses Python (pandas, sklearn, matplotlib, seaborn) for full reproducibility.*
