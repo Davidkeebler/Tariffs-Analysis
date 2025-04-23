@@ -50,8 +50,8 @@ This project analyzes U.S. international trade and tariff policy by performing k
 - **Utility of Clustering:** Methodology robust, but conclusive results require a more comprehensive dataset
 - **Reuse:** The provided code framework is ready for replication with a better dataset
 
-## How to Run
-- 
+## How to Run and Reproduce Results
+- Download the notebook, ensure packages are updated, and then run the code.
 
 ---
 *Contact the author for feedback or suggestions. The project uses Python (pandas, sklearn, matplotlib, seaborn) for full reproducibility.*
